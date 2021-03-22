@@ -2,8 +2,26 @@ import React from 'react';
 
 class CartItem extends React.Component{
 
+    //Creating State in React
+    constructor(){
+        super();
+        this.state={
+            price:999,
+            title:'Mobile Phone',
+            qty:10,
+            img:''
+        }
+    }
+
+    increaseQuantity(){
+        console.log("this",this);
+        console.log("this.state",this.state);
+    }
+
     render()
-    {
+    {   
+        //Object Destructing
+        const {price,title,qty}=this.state;
         return(
             
             <div className="cart-item">
@@ -16,14 +34,25 @@ class CartItem extends React.Component{
                 
                 <div className="right-block">
 
-                    <div style={{fontSize:30}}> Phone</div>
-                    <div style={styles.size}> 9999  </div>
-                    <div style={styles.size}> 1     </div>
+        <div style={{fontSize:30}}> {title}</div>
+                    <div style={styles.size}> {price} </div>
+                    <div style={styles.size}> {qty}    </div>
                     <div className="cart-item-actions">
                         { /* Buttons */}
-                        <img className="action-icons" alt="increase" src="https://www.flaticon.com/premium-icon/icons/svg/3303/3303893.svg"/>
-                        <img className="action-icons" alt="decrease" src="https://www.flaticon.com/svg/vstatic/svg/992/992683.svg?token=exp=1612801892~hmac=037b4a465de2e9fc3d21e3b8886f0e56"/>
-                        <img className="action-icons" alt="delete" src="https://www.flaticon.com/svg/vstatic/svg/3096/3096673.svg?token=exp=1612801541~hmac=3491687ed00da1666135e2a2dd52936f"/>
+                        <img 
+                        className="action-icons" 
+                        alt="increase" 
+                        src="https://www.flaticon.com/premium-icon/icons/svg/3303/3303893.svg"
+                        onClick={this.increaseQuantity.bind(this)}
+                        />
+                        <img className="action-icons" 
+                        alt="decrease" 
+                        src="https://www.flaticon.com/premium-icon/icons/svg/2740/2740679.svg"
+                        />
+                        <img className="action-icons" 
+                        alt="delete" 
+                        src="https://as2.ftcdn.net/jpg/00/98/26/11/500_F_98261175_Sv69O3rZsHApYkjAdrWbgQixYHwyZyOr.jpg"
+                        />
                     </div>
                 </div>
 
